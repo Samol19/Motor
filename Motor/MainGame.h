@@ -20,7 +20,7 @@ class MainGame {
 private:
 	Sprite sprite;
 	
-	//Sprites x tiempo
+	//sprites por tiempo
 	Sprite sprite1;
 		Sprite sprite2;
 		Sprite sprite3;

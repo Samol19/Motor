@@ -37,9 +37,13 @@ void MainGame::run()
 	init();
 	sprite.init(-1,-1,1,1);
 
-	//INICIALIZAR PROPIEDADES DE LOS SPRITES(RECTANGULOS) A MOSTRAR
+	//INICIALIZAR PROPIEDADES DE LOS SPRITES(RECTANGULOS) A MOSTRAR.
+
+//top left
 	sprite1.init(-1, 0, 1, 1);
+	//top right
 	sprite2.init(0, 0, 1, 1);
+	//bottom right
 	sprite3.init(0, -1, 1, 1);
 
 
@@ -59,7 +63,7 @@ void MainGame::draw()
 	sprite.draw();
 
 
-	//DIBUJAR RECTANGULOS CON EL TIEMPO
+	//DIBUJAR RECTANGULOS CON EL TIEMPO.
 	if (int(time) > 2) {
 		sprite1.draw();
 	}
