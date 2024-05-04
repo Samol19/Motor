@@ -60,7 +60,7 @@ void MainGame::draw()
 
 	//DIBUJAR RECTANGULOS CON EL TIEMPO.
 	if (int(time) > 2) {
-		sprite1.draw();
+		sprite_.draw();
 	}
 
 	if (int(time) > 6) {
