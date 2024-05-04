@@ -7,6 +7,7 @@
 #include<memory>
 #include "Sprite.h"
 #include "GLS_Program.h"
+#include "Window.h"
 using namespace std;
 
 enum class GameState {
@@ -19,15 +20,15 @@ class MainGame {
 
 private:
 	Sprite sprite;
-	
-	//Sprites x tiempo
-	Sprite sprite1;
-		Sprite sprite2;
-		Sprite sprite3;
+
+	//Declaracion de sprites adicionales que apareceran en pantalla
+	Sprite sprite_;
+	Sprite sprite__;
+	Sprite sprite___;
 
 	int width;
 	int height;
-	SDL_Window* window;
+	Window* window;
 	void init();
 	void processInput();
 	GLS_Program program;

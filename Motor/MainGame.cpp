@@ -13,15 +13,9 @@ MainGame::MainGame()
 void MainGame::init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("TA01", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
-	//es valida si hubo un error
-	SDL_GLContext glContext = SDL_GL_CreateContext(window);
-	GLenum error = glewInit();
-	if (error != GLEW_OK) {
-		//falta validar el estado del glew
-	}
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);	
+	window = new Window();
+	window->create("Motor WD2M", width, height, 0);
+
 	initShaders();
 
 }
@@ -34,13 +28,18 @@ MainGame::~MainGame()
 
 void MainGame::run()
 {
-	init();
-	sprite.init(-1,-1,1,1);
+	init();	
+	sprite.init(-1,-1,1,1,"images/cat.png");
 
-	//INICIALIZAR PROPIEDADES DE LOS SPRITES(RECTANGULOS) A MOSTRAR
-	sprite1.init(-1, 0, 1, 1);
-	sprite2.init(0, 0, 1, 1);
-	sprite3.init(0, -1, 1, 1);
+	//inicializacion de sprites Adicionales
+
+	//top left
+	sprite_.init(-1, 0, 1, 1, "images/cat1.png");
+	//top right
+	sprite__.init(0, 0, 1, 1, "images/cat2.png");
+	//bottom left
+	sprite___.init(0, -1, 1, 1, "images/cat3.png");
+
 
 
 
@@ -54,27 +53,27 @@ void MainGame::draw()
 	program.use();
 	GLuint timeLocation = program.getUniformLocation("time");
 	glUniform1f(timeLocation, time);
-	time += 0.008;
-	
+	time += 0.02;
 	sprite.draw();
 
+	//Dibujar sprites adicionales
 
-	//DIBUJAR RECTANGULOS CON EL TIEMPO
+	//DIBUJAR RECTANGULOS CON EL TIEMPO.
 	if (int(time) > 2) {
 		sprite1.draw();
 	}
 
-	if (int(time) > 4) {
-		sprite2.draw();
+	if (int(time) > 6) {
+		sprite__.draw();
 	}
 
-	if (int(time) > 6) {
-		sprite3.draw();
+	if (int(time) > 9) {
+		sprite___.draw();
 	}
 
 
 	program.unuse();
-	SDL_GL_SwapWindow(window);
+	window->swapWindow();
 
 }
 
@@ -107,7 +106,7 @@ void MainGame::initShaders()
 	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 	program.addAtribute("vertexPoistion");
 	program.addAtribute("vertexColor");
-
+	program.addAtribute("vertexUV");
 	program.linkShader();
 
 }
