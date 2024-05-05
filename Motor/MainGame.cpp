@@ -58,8 +58,7 @@ void MainGame::draw()
 
 	//Dibujar sprites adicionales
 
-	//DIBUJAR RECTANGULOS CON EL TIEMPO.
-	if (int(time) > 2) {
+	if (int(time) > 3) {
 		sprite_.draw();
 	}
 
