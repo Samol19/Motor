@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>17.0</VCProjectVersion>
+    <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{db8dac3d-eb5e-4674-b493-37eb0b558527}</ProjectGuid>
+    <ProjectGuid>{10ef884a-b1f8-4227-a0b9-f5e9df9f2f34}</ProjectGuid>
     <RootNamespace>Motor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)depts\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)depts\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)depts/include/;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)depts/lib/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,36 +132,64 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Error.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameplayScreen.cpp" />
     <ClCompile Include="GLS_Program.cpp" />
-    <ClCompile Include="GLTexture.cpp" />
+    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="IGameScreen.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IOManager.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="picoPNG.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="ScreenList.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteBatch.cpp" />
     <ClCompile Include="TextureCache.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agent.h" />
+    <ClInclude Include="App.h" />
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Error.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameplayScreen.h" />
     <ClInclude Include="GLS_Program.h" />
     <ClInclude Include="GLTexture.h" />
+    <ClInclude Include="Human.h" />
+    <ClInclude Include="IGameScreen.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IOManager.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="picoPNG.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="ScreenIndices.h" />
+    <ClInclude Include="ScreenList.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteBatch.h" />
     <ClInclude Include="TextureCache.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="Zombie.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Motor.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

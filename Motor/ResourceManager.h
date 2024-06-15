@@ -8,6 +8,5 @@ private:
 	static TextureCache textureCache;
 public:
 	static GLTexture getTexture(string texturePath);
-
 };
 
