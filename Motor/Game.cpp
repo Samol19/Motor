@@ -13,11 +13,9 @@ Game::~Game()
 
 void Game::run()
 {
-	if (!init())return;
-	isRunning = true;
-	while (isRunning)
-	{
-		inputManager.update(); 
+	if (!init()) return;
+	while (isRunning) {
+		inputManager.update();
 		draw();
 		window.swapWindow();
 	}
@@ -43,6 +41,7 @@ bool Game::init()
 	initSystems();
 	onInit();
 	addScreen();
+
 	currentScreen = screenList->getCurrent();
 	currentScreen->onEntry();
 	currentScreen->setRunning();
@@ -65,7 +64,7 @@ void Game::update()
 				currentScreen->onEntry();
 			}
 			break;
-		case ScreenState::CHANGE_PREVIOUS:
+		case ScreenState::CHANGE_PREVIEW:
 			currentScreen->onExit();
 			currentScreen = screenList->movePrevious();
 			if (currentScreen) {
@@ -76,6 +75,8 @@ void Game::update()
 		case ScreenState::EXIT_APPLICATION:
 			exit();
 			break;
+		default:
+			break;
 		}
 	}
 }
@@ -84,7 +85,7 @@ void Game::draw()
 {
 	glViewport(0, 0, 
 		window.getScreenWidth(), window.getScreenHeight());
-	if (currentScreen && currentScreen->getState()
+	if(currentScreen && currentScreen->getState() 
 		== ScreenState::RUNNING) {
 		currentScreen->draw();
 	}
@@ -92,6 +93,7 @@ void Game::draw()
 
 bool Game::initSystems()
 {
-	window.create("GAAA negativo", 760, 500, 0);
+	window.create("gaaaant", 760, 500, 0);
 	return true;
 }
+

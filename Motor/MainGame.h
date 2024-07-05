@@ -11,6 +11,8 @@
 #include "Human.h"
 #include "Zombie.h"
 #include "SpriteBatch.h"
+#include "Spawner.h"
+#include "Bullet.h"
 
 enum class GameState {
 	PLAY, EXIT
@@ -21,11 +23,16 @@ class MainGame
 private:
 	int width;
 	int height;
+	int timeconter;
+	int timeconter2;
 	SpriteBatch spriteBatch;
 	SpriteBatch hudBatch;
+	
 	vector<Level*> levels;
 	vector<Human*> humans;
 	vector<Zombie*> zombies;
+	vector<Spawner*> spawns;
+	vector<Bullet*> bullets;
 	Player* player;
 	double alphaReduce;
 	double alphaReduceTotal;
@@ -36,12 +43,15 @@ private:
 	Camera2D camera2D;
 	InputManager inputManager;
 	void init();
-	void initLevel();
+	void initLevel(int currentLevel);
 	void processInput();
 	void initShaders();
 	void handleInput();
 	void updateElements();
-	void createBullet();
+	void createBullet(glm::vec2 direction);
+	void passLevel();
+	void resetLevel();
+	void moveAndCollide();
 public:
 	MainGame();
 	~MainGame();

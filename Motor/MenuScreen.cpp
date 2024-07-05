@@ -2,7 +2,11 @@
 
 MenuScreen::MenuScreen(Window* window)
 {
-    this->window = window;
+	this->window = window;
+}
+
+MenuScreen::~MenuScreen()
+{
 }
 
 void MenuScreen::build()
@@ -13,11 +17,11 @@ void MenuScreen::destroy()
 {
 }
 
-void MenuScreen::onExit()
+void MenuScreen::onEntry()
 {
 }
 
-void MenuScreen::onEntry()
+void MenuScreen::onExit()
 {
 }
 
@@ -35,14 +39,10 @@ void MenuScreen::checkInput()
 
 int MenuScreen::getNextScreen() const
 {
-    return 0;
+	return 0;
 }
 
 int MenuScreen::getPreviousScreen() const
 {
-    return 0;
-}
-
-MenuScreen::~MenuScreen()
-{
+	return 0;
 }

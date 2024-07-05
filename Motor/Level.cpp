@@ -25,6 +25,8 @@ void Level::parseLevel()
 	spritebatch.begin();
 	glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
 	Color color;
+	Color colorbricks;
+	colorbricks.set(255, 165, 0, 255);
 	color.set(255, 255, 255, 255);
 	for (size_t y = 0; y < levelData.size(); y++)
 	{
@@ -38,26 +40,27 @@ void Level::parseLevel()
 			case 'R':
 			case 'B':
 				spritebatch.draw(destRect, uvRect,
-					ResourceManager::getTexture("Images/red_bricks.png").id,
-					0.0f,color);
+					ResourceManager::getTexture("Images/red_bricks.png").id, 0.0f, colorbricks);
 				break;
 			case 'G':
 				spritebatch.draw(destRect, uvRect,
-					ResourceManager::getTexture("Images/glass.png").id,
-					0.0f, color);
+					ResourceManager::getTexture("Images/glass.png").id, 0.0f, colorbricks);
 				break;
 			case 'L':
 				spritebatch.draw(destRect, uvRect,
-					ResourceManager::getTexture("Images/light_bricks.png").id,
-					0.0f, color);
+					ResourceManager::getTexture("Images/light_bricks.png").id, 0.0f, colorbricks);
 				break;
 			case '@':
-				levelData[y][x] = '.';
+				levelData[y][x] = '.'; // cada punto es un vacio
 				playerPosition.x = x * TILE_WIDTH;
 				playerPosition.y = y * TILE_WIDTH;
 				break;
+			case 'T':
+				levelData[y][x] = '.';
+				// inicializar spawner
+				spawns.push_back(glm::vec2(x * TILE_WIDTH, y * TILE_WIDTH));
+				break;
 			case 'Z':
-				//AGREGAR ZOMBIES
 				levelData[y][x] = '.';
 				zombies.push_back(glm::vec2(x * TILE_WIDTH, y * TILE_WIDTH));
 				break;

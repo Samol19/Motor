@@ -16,11 +16,11 @@ void GameplayScreen::destroy()
 {
 }
 
-void GameplayScreen::onExit()
+void GameplayScreen::onEntry()
 {
 }
 
-void GameplayScreen::onEntry()
+void GameplayScreen::onExit()
 {
 }
 
@@ -38,10 +38,10 @@ void GameplayScreen::checkInput()
 
 int GameplayScreen::getNextScreen() const
 {
-    return 0;
+	return 0;
 }
 
 int GameplayScreen::getPreviousScreen() const
 {
-    return 0;
+	return 0;
 }

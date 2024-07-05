@@ -7,7 +7,7 @@ class InputManager
 {
 private:
 	unordered_map<unsigned int, bool> keys;
-	unordered_map<unsigned int, bool>previousKeys;
+	unordered_map<unsigned int, bool> previousKeys;
 	glm::vec2 mouseCoords;
 public:
 	InputManager();

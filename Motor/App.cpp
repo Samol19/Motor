@@ -15,9 +15,9 @@ void App::onInit()
 
 void App::addScreen()
 {
-	/*menuScreen = std::make_unique<MenuScreen>(&window);
-	screenList->addScreen(menuScreen.get());
-	screenList->setCreen(menuScreen->getIndex());*/
+	//menuScreen = std::make_unique<MenuScreen>(&window);
+	//screenList->addScreen(menuScreen.get());
+	//screenList->setScreen(menuScreen->getIndex()); 
 }
 
 void App::onExit()

@@ -1,5 +1,6 @@
 #include "Camera2D.h"
 
+
 Camera2D::Camera2D() : scale(1.0),
 screenWidth(500),
 screenHeight(500),

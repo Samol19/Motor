@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <vector>
 using namespace std;
+// esta clase se encarga de dibujar los sprites en pantalla
 
 enum class GlyphSortType {
 	NONE,
@@ -24,10 +25,10 @@ public:
 	}
 };
 
-class Glyph {
+class Glyph { // clase que representa un sprite en pantalla
 public:
 	Glyph() {}
-	Glyph(const glm::vec4& desRect, const glm::vec4& uvRect,
+	Glyph(const glm::vec4& desRect, const glm::vec4& uvRect, 
 		GLuint texture, float depth, const Color& color) {
 		this->texture = texture;
 		this->depth = depth;
@@ -52,7 +53,7 @@ public:
 	Vertex topRight;
 	Vertex bottomRight;
 };
-class SpriteBatch
+class SpriteBatch // clase que se encarga de dibujar los sprites en pantalla
 {
 private:
 	GLuint vbo;

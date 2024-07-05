@@ -51,7 +51,6 @@ void Agent::collideWithTile(glm::vec2 tilePos)
 
 Agent::Agent()
 {
-    speed = 0;
 }
 
 void Agent::update(vector<string>& levelData,
@@ -60,13 +59,17 @@ void Agent::update(vector<string>& levelData,
 {
 }
 
-void Agent::draw(SpriteBatch& spritebatch)
+//funcion draw por defecto
+void Agent::draw()
 {
-    static int textureID = 
-        ResourceManager::getTexture("Images/circle.png").id;
-    const glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
+    spritebatch.init();
+    spritebatch.begin();
+
+    glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
     glm::vec4 destRect(position.x, position.y, AGENT_WIDTH, AGENT_WIDTH);
-    spritebatch.draw(destRect, uvRect, textureID, 0.0f, color);
+    spritebatch.draw(destRect, uvRect, ResourceManager::getTexture("Images/circle.png").id, 0.0f, color);
+    spritebatch.end();
+    spritebatch.renderBatch();
 }
 
 bool Agent::collideWithLevel(const vector<string> levelData)

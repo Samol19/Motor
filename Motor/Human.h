@@ -1,10 +1,13 @@
 #pragma once
 #include "Agent.h"
-class Human :
+
+class Human : 
     public Agent
 {
 private:
     glm::vec2 direction;
+    string spritePath;
+    int randomIndex;
 public:
     Human();
     ~Human();
@@ -12,5 +15,9 @@ public:
     void update(vector<string>& levelData,
         vector<Human*>& humans,
         vector<Zombie*>& zombies);
+
+    //funcionm para sobrescrivir draw
+    virtual void draw() override;
+
 };
 

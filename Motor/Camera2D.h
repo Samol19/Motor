@@ -1,5 +1,6 @@
 #pragma once
 #include <glm\gtc\matrix_transform.hpp>
+#include "InputManager.h"
 
 class Camera2D
 {
@@ -11,6 +12,7 @@ private:
 	bool needsUpdateMatrix;
 	glm::mat4 cameraMatrix;
 	glm::mat4 orthoMatrix;
+
 public:
 	void update();
 	void init(int screenWidth, int screenHeight);
@@ -32,6 +34,8 @@ public:
 	glm::mat4 getCameraMatrix() {
 		return cameraMatrix;
 	}
+
+
 	Camera2D();
 	~Camera2D();
 };

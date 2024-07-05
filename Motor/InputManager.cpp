@@ -6,9 +6,9 @@ InputManager::InputManager():mouseCoords(0.0f,0.0f)
 
 void InputManager::update()
 {
-    for (auto& it: keys) {
-        previousKeys[it.first] = it.second;
-    }
+    for (auto& it : keys) {
+		previousKeys[it.first] = it.second;
+	}
 }
 
 void InputManager::setMouseCoords(float x, float y)
@@ -38,7 +38,7 @@ void InputManager::releaseKey(unsigned int keyCode)
 
 bool InputManager::isKeyPressed(unsigned int keyCode)
 {
-    
+   
     return false;
 }
 

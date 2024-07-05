@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL/SDL.h>
 #include "Window.h"
 #include "InputManager.h"
 #include <memory>
